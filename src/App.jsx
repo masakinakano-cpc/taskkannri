@@ -3,16 +3,16 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 // ページコンポーネント
-import Dashboard from '../Pages/Dashboard';
-import KanbanBoard from '../Pages/KanbanBoard';
-import CalendarView from '../Pages/CalendarView';
-import TimelineView from '../Pages/TimelineView';
-import Templates from '../Pages/Templates';
-import CalendarSettings from '../Pages/CalendarSettings';
-import OAuthCallback from '../Pages/OAuthCallback';
+import Dashboard from '@/Pages/Dashboard';
+import KanbanBoard from '@/Pages/KanbanBoard';
+import CalendarView from '@/Pages/CalendarView';
+import TimelineView from '@/Pages/TimelineView';
+import Templates from '@/Pages/Templates';
+import CalendarSettings from '@/Pages/CalendarSettings';
+import OAuthCallback from '@/Pages/OAuthCallback';
 
 // レイアウト
-import Layout from '../Layout.jsx';
+import Layout from '@/Layout';
 
 // QueryClientの作成
 const queryClient = new QueryClient({

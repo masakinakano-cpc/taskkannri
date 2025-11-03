@@ -9,7 +9,7 @@ import { ja } from "date-fns/locale";
 
 import TaskDetailModal from "@/components/kanban/TaskDetailModal";
 import CalendarSidebar from "@/components/calendar/CalendarSidebar";
-import { useGoogleCalendar } from "../hooks/useGoogleCalendar";
+import { useGoogleCalendar } from "@/hooks/useGoogleCalendar";
 
 const statusColors = {
     preparation: "bg-slate-500",
