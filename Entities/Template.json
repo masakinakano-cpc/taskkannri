@@ -1,0 +1,53 @@
+{
+    "name": "Template",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "\u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u540d"
+        },
+        "title": {
+            "type": "string",
+            "description": "\u30bf\u30b9\u30af\u306e\u30bf\u30a4\u30c8\u30eb"
+        },
+        "description": {
+            "type": "string",
+            "description": "\u30bf\u30b9\u30af\u306e\u8a73\u7d30\u8aac\u660e"
+        },
+        "priority": {
+            "type": "string",
+            "enum": [
+                "low",
+                "medium",
+                "high",
+                "urgent"
+            ],
+            "default": "medium",
+            "description": "\u512a\u5148\u5ea6"
+        },
+        "category": {
+            "type": "string",
+            "enum": [
+                "\u767a\u6ce8\u4f9d\u983c",
+                "\u5951\u7d04\u7a1f\u8b70",
+                "\u7d4c\u8cbb\u7533\u8acb",
+                "\u4f11\u6687\u7533\u8acb",
+                "\u305d\u306e\u4ed6"
+            ],
+            "default": "\u305d\u306e\u4ed6",
+            "description": "\u30ab\u30c6\u30b4\u30ea"
+        },
+        "approver": {
+            "type": "string",
+            "description": "\u627f\u8a8d\u8005\u540d"
+        },
+        "memo": {
+            "type": "string",
+            "description": "\u30e1\u30e2\u30fb\u6ce8\u610f\u70b9"
+        }
+    },
+    "required": [
+        "name",
+        "title"
+    ]
+}

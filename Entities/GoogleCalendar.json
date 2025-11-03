@@ -1,0 +1,79 @@
+{
+    "name": "GoogleCalendar",
+    "type": "object",
+    "description": "Googleカレンダー情報と表示設定",
+    "properties": {
+        "google_account_id": {
+            "type": "string",
+            "description": "関連するGoogleAccountのID"
+        },
+        "calendar_id": {
+            "type": "string",
+            "description": "GoogleカレンダーID"
+        },
+        "calendar_name": {
+            "type": "string",
+            "description": "カレンダー名"
+        },
+        "description": {
+            "type": "string",
+            "description": "カレンダーの説明"
+        },
+        "time_zone": {
+            "type": "string",
+            "description": "タイムゾーン"
+        },
+        "color": {
+            "type": "string",
+            "description": "表示色（HEXコード）",
+            "pattern": "^#[0-9A-Fa-f]{6}$"
+        },
+        "background_color": {
+            "type": "string",
+            "description": "背景色（Google側の色）"
+        },
+        "foreground_color": {
+            "type": "string",
+            "description": "前景色（Google側の色）"
+        },
+        "is_visible": {
+            "type": "boolean",
+            "default": true,
+            "description": "カレンダーを表示するかどうか"
+        },
+        "is_primary": {
+            "type": "boolean",
+            "default": false,
+            "description": "プライマリカレンダーかどうか"
+        },
+        "access_role": {
+            "type": "string",
+            "enum": [
+                "owner",
+                "writer",
+                "reader",
+                "freeBusyReader"
+            ],
+            "description": "カレンダーへのアクセス権限"
+        },
+        "sync_enabled": {
+            "type": "boolean",
+            "default": true,
+            "description": "同期を有効にするかどうか"
+        },
+        "sync_token": {
+            "type": "string",
+            "description": "増分同期用トークン"
+        },
+        "display_order": {
+            "type": "number",
+            "default": 0,
+            "description": "表示順序"
+        }
+    },
+    "required": [
+        "google_account_id",
+        "calendar_id",
+        "calendar_name"
+    ]
+}

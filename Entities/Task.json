@@ -1,0 +1,87 @@
+{
+    "name": "Task",
+    "type": "object",
+    "properties": {
+        "title": {
+            "type": "string",
+            "description": "\u30bf\u30b9\u30af\u306e\u30bf\u30a4\u30c8\u30eb"
+        },
+        "description": {
+            "type": "string",
+            "description": "\u30bf\u30b9\u30af\u306e\u8a73\u7d30\u8aac\u660e"
+        },
+        "status": {
+            "type": "string",
+            "enum": [
+                "preparation",
+                "pending",
+                "returned",
+                "approved",
+                "completed"
+            ],
+            "default": "preparation",
+            "description": "\u627f\u8a8d\u30b9\u30c6\u30fc\u30bf\u30b9"
+        },
+        "priority": {
+            "type": "string",
+            "enum": [
+                "low",
+                "medium",
+                "high",
+                "urgent"
+            ],
+            "default": "medium",
+            "description": "\u512a\u5148\u5ea6"
+        },
+        "category": {
+            "type": "string",
+            "enum": [
+                "\u767a\u6ce8\u4f9d\u983c",
+                "\u5951\u7d04\u7a1f\u8b70",
+                "\u7d4c\u8cbb\u7533\u8acb",
+                "\u4f11\u6687\u7533\u8acb",
+                "\u305d\u306e\u4ed6"
+            ],
+            "default": "\u305d\u306e\u4ed6",
+            "description": "\u30ab\u30c6\u30b4\u30ea"
+        },
+        "due_date": {
+            "type": "string",
+            "format": "date",
+            "description": "\u671f\u65e5"
+        },
+        "approver": {
+            "type": "string",
+            "description": "\u627f\u8a8d\u8005\u540d"
+        },
+        "memo": {
+            "type": "string",
+            "description": "\u30e1\u30e2\u30fb\u6ce8\u610f\u70b9"
+        },
+        "comments": {
+            "type": "array",
+            "description": "\u30b3\u30e1\u30f3\u30c8\u5c65\u6b74",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "type": "string"
+                    },
+                    "timestamp": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "attachments": {
+            "type": "array",
+            "description": "\u6dfb\u4ed8\u30d5\u30a1\u30a4\u30ebURL",
+            "items": {
+                "type": "string"
+            }
+        }
+    },
+    "required": [
+        "title"
+    ]
+}

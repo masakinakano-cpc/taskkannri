@@ -1,0 +1,63 @@
+{
+    "name": "GoogleAccount",
+    "type": "object",
+    "description": "Googleアカウント連携情報",
+    "properties": {
+        "email": {
+            "type": "string",
+            "format": "email",
+            "description": "Googleアカウントのメールアドレス"
+        },
+        "google_user_id": {
+            "type": "string",
+            "description": "GoogleユーザーID"
+        },
+        "display_name": {
+            "type": "string",
+            "description": "表示名"
+        },
+        "profile_image": {
+            "type": "string",
+            "format": "uri",
+            "description": "プロフィール画像URL"
+        },
+        "access_token": {
+            "type": "string",
+            "description": "アクセストークン（暗号化推奨）"
+        },
+        "refresh_token": {
+            "type": "string",
+            "description": "リフレッシュトークン（暗号化推奨）"
+        },
+        "token_expiry": {
+            "type": "string",
+            "format": "date-time",
+            "description": "トークン有効期限"
+        },
+        "scope": {
+            "type": "string",
+            "description": "付与されたスコープ"
+        },
+        "is_active": {
+            "type": "boolean",
+            "default": true,
+            "description": "アカウントが有効かどうか"
+        },
+        "connected_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "連携日時"
+        },
+        "last_synced_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "最終同期日時"
+        }
+    },
+    "required": [
+        "email",
+        "google_user_id",
+        "access_token",
+        "refresh_token"
+    ]
+}
