@@ -12,7 +12,7 @@ import CalendarSettings from '../Pages/CalendarSettings';
 import OAuthCallback from '../Pages/OAuthCallback';
 
 // レイアウト
-import Layout from '../Layout';
+import Layout from '../Layout.jsx';
 
 // QueryClientの作成
 const queryClient = new QueryClient({

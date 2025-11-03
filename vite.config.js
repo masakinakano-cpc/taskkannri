@@ -8,10 +8,7 @@ export default defineConfig({
   base: process.env.NODE_ENV === 'production' ? '/taskkannri/' : '/',
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './'),
-      '@/api': path.resolve(__dirname, './src/api'),
-      '@/utils': path.resolve(__dirname, './src/utils'),
-      '@/components': path.resolve(__dirname, './src/components'),
+      '@': path.resolve(__dirname, './src'),
     },
   },
   server: {
