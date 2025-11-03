@@ -396,6 +396,64 @@ interface GoogleCalendar {
 }
 ```
 
+### ExternalServiceConnection（外部サービス接続）
+```typescript
+interface ExternalServiceConnection {
+  id: string;                    // UUID
+  service_type: string;          // 'chatwork' | 'google_chat' | 'gmail'
+  service_name: string;          // サービス名
+  account_email: string;         // アカウントメールアドレス
+  api_token: string;             // APIトークン
+  refresh_token?: string;        // リフレッシュトークン（Google系）
+  token_expiry?: string;         // トークン有効期限 (ISO 8601)
+  is_active: boolean;            // 有効/無効
+  auto_sync_enabled: boolean;    // 自動同期の有効/無効
+  sync_interval_minutes: number; // 同期間隔（分）
+  last_sync_at?: string;         // 最終同期日時 (ISO 8601)
+  created_at: string;            // ISO 8601形式
+  updated_at: string;            // ISO 8601形式
+}
+```
+
+### SyncRule（同期ルール）
+```typescript
+interface SyncRule {
+  id: string;                    // UUID
+  connection_id: string;         // ExternalServiceConnectionへの外部キー
+  rule_name: string;             // ルール名
+  filter_type: string;           // 'keyword' | 'sender' | 'label' | 'room' | 'all'
+  filter_value?: string;         // フィルター値
+  default_priority: string;      // 'low' | 'medium' | 'high'
+  default_assignee?: string;     // デフォルト担当者
+  auto_create_task: boolean;     // 自動タスク化
+  is_active: boolean;            // ルールの有効/無効
+  created_at: string;            // ISO 8601形式
+  updated_at: string;            // ISO 8601形式
+}
+```
+
+### ExternalMessage（外部メッセージ）
+```typescript
+interface ExternalMessage {
+  id: string;                    // UUID
+  connection_id: string;         // ExternalServiceConnectionへの外部キー
+  external_message_id: string;   // 外部サービス上のメッセージID
+  message_type: string;          // 'chatwork' | 'google_chat' | 'gmail'
+  sender_name: string;           // 送信者名
+  sender_email?: string;         // 送信者メールアドレス
+  subject?: string;              // 件名（Gmailの場合）
+  body: string;                  // メッセージ本文
+  room_id?: string;              // ルームID（Chatwork/Google Chat）
+  room_name?: string;            // ルーム名（Chatwork/Google Chat）
+  labels?: string[];             // ラベル配列（Gmailの場合）
+  is_converted_to_task: boolean; // タスクに変換済みか
+  task_id?: string;              // 変換されたタスクのID
+  received_at: string;           // メッセージ受信日時 (ISO 8601)
+  created_at: string;            // ISO 8601形式
+  updated_at: string;            // ISO 8601形式
+}
+```
+
 ---
 
 ## 📁 ディレクトリ構成
@@ -440,10 +498,17 @@ interface GoogleCalendar {
 │   │   ├── TimelineView.jsx        # タイムライン画面
 │   │   ├── Templates.jsx           # テンプレート管理画面
 │   │   ├── CalendarSettings.jsx   # カレンダー設定画面
+│   │   ├── ExternalIntegrations.jsx # 外部サービス連携管理画面
+│   │   ├── MessagePreview.jsx      # メッセージプレビュー画面
 │   │   └── OAuthCallback.jsx       # OAuth認証コールバック画面
 │   ├── services/
-│   │   └── google/
-│   │       └── googleCalendarService.js # Google Calendar API サービス
+│   │   ├── google/
+│   │   │   └── googleCalendarService.js # Google Calendar API サービス
+│   │   └── external/               # 外部サービス連携
+│   │       ├── chatworkService.js  # Chatwork APIクライアント
+│   │       ├── googleChatService.js # Google Chat APIクライアント
+│   │       ├── gmailService.js     # Gmail APIクライアント
+│   │       └── externalSyncService.js # 統合同期サービス
 │   ├── styles/
 │   │   └── index.css               # グローバルスタイル（Tailwind設定）
 │   ├── utils/
@@ -455,13 +520,17 @@ interface GoogleCalendar {
 │   ├── Task.json
 │   ├── Template.json
 │   ├── GoogleAccount.json
-│   └── GoogleCalendar.json
+│   ├── GoogleCalendar.json
+│   ├── ExternalServiceConnection.json # 外部サービス接続情報
+│   ├── SyncRule.json               # 同期ルール設定
+│   └── ExternalMessage.json        # 取得済みメッセージ
 ├── index.html                      # HTMLエントリーポイント
 ├── package.json                    # npm依存関係
 ├── vite.config.js                  # Vite設定
 ├── tailwind.config.js              # TailwindCSS設定
 ├── postcss.config.js               # PostCSS設定
 ├── .gitignore                      # Git除外設定
+├── EXTERNAL_INTEGRATION.md         # 外部サービス連携ドキュメント
 └── README.md                       # このファイル
 ```
 
