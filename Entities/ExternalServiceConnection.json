@@ -1,0 +1,87 @@
+{
+  "entity": "ExternalServiceConnection",
+  "description": "外部サービス（Chatwork、Google Chat、Gmail）の接続情報を管理",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "UUID",
+      "required": true
+    },
+    {
+      "name": "service_type",
+      "type": "string",
+      "description": "サービスタイプ: 'chatwork' | 'google_chat' | 'gmail'",
+      "required": true
+    },
+    {
+      "name": "service_name",
+      "type": "string",
+      "description": "サービス名（ユーザーが識別しやすい名前）",
+      "required": true
+    },
+    {
+      "name": "account_email",
+      "type": "string",
+      "description": "連携アカウントのメールアドレス",
+      "required": true
+    },
+    {
+      "name": "api_token",
+      "type": "string",
+      "description": "APIトークンまたはアクセストークン",
+      "required": false
+    },
+    {
+      "name": "refresh_token",
+      "type": "string",
+      "description": "リフレッシュトークン（Google Chat/Gmail用）",
+      "required": false
+    },
+    {
+      "name": "token_expiry",
+      "type": "string",
+      "description": "トークン有効期限 (ISO 8601形式)",
+      "required": false
+    },
+    {
+      "name": "is_active",
+      "type": "boolean",
+      "description": "連携の有効/無効",
+      "required": true,
+      "default": true
+    },
+    {
+      "name": "auto_sync_enabled",
+      "type": "boolean",
+      "description": "自動同期の有効/無効",
+      "required": true,
+      "default": false
+    },
+    {
+      "name": "sync_interval_minutes",
+      "type": "number",
+      "description": "同期間隔（分）",
+      "required": true,
+      "default": 15
+    },
+    {
+      "name": "last_sync_at",
+      "type": "string",
+      "description": "最終同期日時 (ISO 8601形式)",
+      "required": false
+    },
+    {
+      "name": "created_at",
+      "type": "string",
+      "description": "作成日時 (ISO 8601形式)",
+      "required": true
+    },
+    {
+      "name": "updated_at",
+      "type": "string",
+      "description": "更新日時 (ISO 8601形式)",
+      "required": true
+    }
+  ]
+}

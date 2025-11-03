@@ -1,0 +1,103 @@
+{
+  "entity": "ExternalMessage",
+  "description": "外部サービスから取得したメッセージの記録",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "UUID",
+      "required": true
+    },
+    {
+      "name": "connection_id",
+      "type": "string",
+      "description": "ExternalServiceConnectionへの外部キー",
+      "required": true
+    },
+    {
+      "name": "external_message_id",
+      "type": "string",
+      "description": "外部サービス上のメッセージID",
+      "required": true
+    },
+    {
+      "name": "message_type",
+      "type": "string",
+      "description": "メッセージタイプ: 'chatwork' | 'google_chat' | 'gmail'",
+      "required": true
+    },
+    {
+      "name": "sender_name",
+      "type": "string",
+      "description": "送信者名",
+      "required": true
+    },
+    {
+      "name": "sender_email",
+      "type": "string",
+      "description": "送信者メールアドレス",
+      "required": false
+    },
+    {
+      "name": "subject",
+      "type": "string",
+      "description": "件名（Gmailの場合）またはメッセージのタイトル",
+      "required": false
+    },
+    {
+      "name": "body",
+      "type": "string",
+      "description": "メッセージ本文",
+      "required": true
+    },
+    {
+      "name": "room_id",
+      "type": "string",
+      "description": "ルームID（Chatwork/Google Chatの場合）",
+      "required": false
+    },
+    {
+      "name": "room_name",
+      "type": "string",
+      "description": "ルーム名（Chatwork/Google Chatの場合）",
+      "required": false
+    },
+    {
+      "name": "labels",
+      "type": "array",
+      "description": "ラベル配列（Gmailの場合）",
+      "required": false
+    },
+    {
+      "name": "is_converted_to_task",
+      "type": "boolean",
+      "description": "タスクに変換済みかどうか",
+      "required": true,
+      "default": false
+    },
+    {
+      "name": "task_id",
+      "type": "string",
+      "description": "変換されたタスクのID",
+      "required": false
+    },
+    {
+      "name": "received_at",
+      "type": "string",
+      "description": "メッセージ受信日時 (ISO 8601形式)",
+      "required": true
+    },
+    {
+      "name": "created_at",
+      "type": "string",
+      "description": "レコード作成日時 (ISO 8601形式)",
+      "required": true
+    },
+    {
+      "name": "updated_at",
+      "type": "string",
+      "description": "更新日時 (ISO 8601形式)",
+      "required": true
+    }
+  ]
+}

@@ -10,6 +10,8 @@ import TimelineView from '@/Pages/TimelineView';
 import Templates from '@/Pages/Templates';
 import CalendarSettings from '@/Pages/CalendarSettings';
 import OAuthCallback from '@/Pages/OAuthCallback';
+import ExternalIntegrations from '@/Pages/ExternalIntegrations';
+import MessagePreview from '@/Pages/MessagePreview';
 
 // レイアウト
 import Layout from '@/Layout';
@@ -86,6 +88,24 @@ function App() {
             element={
               <Layout currentPageName="カレンダー設定">
                 <CalendarSettings />
+              </Layout>
+            }
+          />
+
+          <Route
+            path="/external-integrations"
+            element={
+              <Layout currentPageName="外部サービス連携">
+                <ExternalIntegrations />
+              </Layout>
+            }
+          />
+
+          <Route
+            path="/message-preview"
+            element={
+              <Layout currentPageName="メッセージプレビュー">
+                <MessagePreview />
               </Layout>
             }
           />

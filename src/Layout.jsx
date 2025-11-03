@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { createPageUrl } from "@/utils";
-import { Kanban, Calendar, CheckSquare, Menu, LayoutDashboard, FileText, Clock } from "lucide-react";
+import { Kanban, Calendar, CheckSquare, Menu, LayoutDashboard, FileText, Clock, Link as LinkIcon, MessageSquare } from "lucide-react";
 import {
     Sidebar,
     SidebarContent,
@@ -50,6 +50,16 @@ const settingsItems = [
         title: "カレンダー設定",
         url: "/calendar-settings",
         icon: Calendar,
+    },
+    {
+        title: "外部サービス連携",
+        url: "/external-integrations",
+        icon: LinkIcon,
+    },
+    {
+        title: "メッセージプレビュー",
+        url: "/message-preview",
+        icon: MessageSquare,
     },
 ];
 

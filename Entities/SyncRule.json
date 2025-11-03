@@ -1,0 +1,75 @@
+{
+  "entity": "SyncRule",
+  "description": "外部サービスからのメッセージをタスク化するルール設定",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "UUID",
+      "required": true
+    },
+    {
+      "name": "connection_id",
+      "type": "string",
+      "description": "ExternalServiceConnectionへの外部キー",
+      "required": true
+    },
+    {
+      "name": "rule_name",
+      "type": "string",
+      "description": "ルール名",
+      "required": true
+    },
+    {
+      "name": "filter_type",
+      "type": "string",
+      "description": "フィルタータイプ: 'keyword' | 'sender' | 'label' | 'room' | 'all'",
+      "required": true
+    },
+    {
+      "name": "filter_value",
+      "type": "string",
+      "description": "フィルター値（キーワード、送信者、ラベル、ルームIDなど）",
+      "required": false
+    },
+    {
+      "name": "default_priority",
+      "type": "string",
+      "description": "デフォルト優先度: 'low' | 'medium' | 'high'",
+      "required": true,
+      "default": "medium"
+    },
+    {
+      "name": "default_assignee",
+      "type": "string",
+      "description": "デフォルト担当者",
+      "required": false
+    },
+    {
+      "name": "auto_create_task",
+      "type": "boolean",
+      "description": "条件に合致したメッセージを自動的にタスク化するか",
+      "required": true,
+      "default": false
+    },
+    {
+      "name": "is_active",
+      "type": "boolean",
+      "description": "ルールの有効/無効",
+      "required": true,
+      "default": true
+    },
+    {
+      "name": "created_at",
+      "type": "string",
+      "description": "作成日時 (ISO 8601形式)",
+      "required": true
+    },
+    {
+      "name": "updated_at",
+      "type": "string",
+      "description": "更新日時 (ISO 8601形式)",
+      "required": true
+    }
+  ]
+}
